@@ -28,10 +28,10 @@ function onGetTime(selectedDates) {
     );
   }
 }
+let weer = null;
 function etTime() {
   start.removeEventListener('click', etTime);
   start.classList.remove('button-start');
-
   weer = setInterval(convertMs, 1000, choisTime);
 }
 const tablo = {
