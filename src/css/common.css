@@ -16,3 +16,19 @@ img {
   display: block;
   max-width: 100%;
 }
+.button-start {
+  background-color: tomato;
+  color: tan;
+}
+.button-start:hover {
+  background-color: teal;
+}
+.body-style {
+  background-color: tomato;
+  color: tan;
+}
+.timer {
+  display: flex;
+  font-size: 26px;
+  gap: 20px;
+}

@@ -8,5 +8,13 @@ function getRandomHexColor() {
 }
 buttonStart.addEventListener('click', onBodyStyle);
 function onBodyStyle() {
-  body.style.backgroundColor = getRandomHexColor();
+  weer = setInterval(() => {
+    body.style.backgroundColor = getRandomHexColor();
+  }, 1000);
+  console.log('kkkkkkkkkkk');
+  buttonStart.removeEventListener('click', onBodyStyle);
 }
+buttonStop.addEventListener('click', () => {
+  clearInterval(weer);
+  buttonStart.addEventListener('click', onBodyStyle);
+});
