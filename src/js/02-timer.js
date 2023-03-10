@@ -32,7 +32,7 @@ function etTime() {
   start.removeEventListener('click', etTime);
   start.classList.remove('button-start');
 
-  const weer = setInterval(convertMs, 1000, choisTime);
+  weer = setInterval(convertMs, 1000, choisTime);
 }
 const tablo = {
   days: document.querySelector('[data-days]'),
