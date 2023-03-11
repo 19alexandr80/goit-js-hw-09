@@ -23,7 +23,7 @@ function onGetTime(selectedDates) {
   } else {
     Notiflix.Report.failure(
       'Please choose a date in the future',
-      'Вибачте, але опция /taimMashin/ тимчасово не працює. Спробуйте пізніше',
+      'Вибачте, але опция /timeMashine/ тимчасово не працює. Спробуйте пізніше',
       'OK'
     );
   }
