@@ -11,6 +11,7 @@ let spacingVariable = null;
 function onBodyStyle() {
   buttonStop.removeAttribute('disabled');
   buttonStart.setAttribute('disabled', 'disabled');
+  body.style.backgroundColor = getRandomHexColor();
   spacingVariable = setInterval(() => {
     body.style.backgroundColor = getRandomHexColor();
   }, 1000);
