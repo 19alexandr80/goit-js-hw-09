@@ -28,11 +28,11 @@ function onGetTime(selectedDates) {
     );
   }
 }
-let weer = null;
+let spacingVariable = null;
 function etTime() {
   start.removeEventListener('click', etTime);
   start.classList.remove('button-start');
-  weer = setInterval(convertMs, 1000, choisTime);
+  spacingVariable = setInterval(convertMs, 1000, choisTime);
 }
 const tablo = {
   days: document.querySelector('[data-days]'),
@@ -57,7 +57,7 @@ function convertMs(ms) {
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
   tablo.seconds.innerHTML = String(seconds).padStart(2, '0');
   if (ms < 1000) {
-    clearInterval(weer);
+    clearInterval(spacingVariable);
     timer = 0;
     document.querySelector('body').classList.add('body-style');
     Notiflix.Report.success(

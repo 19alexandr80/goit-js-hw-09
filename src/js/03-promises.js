@@ -2,19 +2,19 @@ import 'notiflix/dist/notiflix-3.2.6.min.css';
 import Notiflix from 'notiflix';
 
 const formEl = document.querySelector('.form');
-let weer = null;
+let spacingVariable = null;
 formEl.addEventListener('submit', onSubmit);
-const con = {};
+const userData = {};
 function onSubmit(e) {
   e.preventDefault();
   const formData = new FormData(e.currentTarget);
   formData.forEach((a, b) => {
-    con[b] = a;
+    userData[b] = a;
   });
   setTimeout(() => {
-    weer = setInterval(promm, con.step);
-    con.amaund = +con.delay;
-  }, con.delay);
+    spacingVariable = setInterval(onPromiseCall, userData.step);
+    userData.delayTime = Number(userData.delay);
+  }, userData.delay);
 }
 const onPromise = () => {
   return new Promise((resolve, reject) => {
@@ -25,27 +25,33 @@ const onPromise = () => {
     reject();
   });
 };
-let amm = 0;
-const promm = () => {
-  if (+con.amount === amm) {
-    clearInterval(weer);
-    amm = 0;
-    con.amaund = 0;
+let promiseCounter = 0;
+const onPromiseCall = () => {
+  if (Number(userData.amount) === promiseCounter) {
+    clearInterval(spacingVariable);
+    promiseCounter = 0;
+    userData.delayTime = 0;
     return;
   }
-  amm += 1;
+  promiseCounter += 1;
   onPromise().then(onThen).catch(onCatch);
-  if (amm !== 1) {
-    con.amaund += +con.step;
+  if (promiseCounter !== 1) {
+    userData.delayTime += Number(userData.step);
   }
 };
 function onThen() {
-  Notiflix.Notify.success(`✅ Fulfilled promise ${amm} in ${con.amaund}ms`, {
-    timeout: 6000,
-  });
+  Notiflix.Notify.success(
+    `✅ Fulfilled promise ${promiseCounter} in ${userData.delayTime}ms`,
+    {
+      timeout: 6000,
+    }
+  );
 }
 function onCatch() {
-  Notiflix.Notify.failure(`❌ Rejected promise ${amm} in ${con.amaund}ms`, {
-    timeout: 6000,
-  });
+  Notiflix.Notify.failure(
+    `❌ Rejected promise ${promiseCounter} in ${userData.delayTime}ms`,
+    {
+      timeout: 6000,
+    }
+  );
 }
