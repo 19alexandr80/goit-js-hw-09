@@ -12,6 +12,7 @@ function onSubmit(e) {
     userData[b] = a;
   });
   setTimeout(() => {
+    onPromiseCall();
     spacingVariable = setInterval(onPromiseCall, userData.step);
     userData.delayTime = Number(userData.delay);
   }, userData.delay);
