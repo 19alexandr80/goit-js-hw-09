@@ -15,11 +15,11 @@ function onBodyStyle() {
   spacingVariable = setInterval(() => {
     body.style.backgroundColor = getRandomHexColor();
   }, 1000);
-  buttonStart.removeEventListener('click', onBodyStyle);
+  // buttonStart.removeEventListener('click', onBodyStyle);
 }
 buttonStop.addEventListener('click', () => {
   buttonStart.removeAttribute('disabled');
   buttonStop.setAttribute('disabled', 'disabled');
   clearInterval(spacingVariable);
-  buttonStart.addEventListener('click', onBodyStyle);
+  // buttonStart.addEventListener('click', onBodyStyle);
 });
